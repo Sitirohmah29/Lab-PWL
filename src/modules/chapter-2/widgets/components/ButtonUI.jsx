@@ -1,4 +1,5 @@
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+
 const ButtonIcon = ({ children, color, title, position = "top", onAction }) => {
   return (
     <OverlayTrigger
@@ -7,7 +8,7 @@ const ButtonIcon = ({ children, color, title, position = "top", onAction }) => {
       overlay={renderTooltip({ title: title })}
     >
       <button
-        className={"btn btn-icon " + color}
+        className={"btn btn-icon" + color}
         type="button"
         onClick={onAction}
       >
@@ -16,6 +17,7 @@ const ButtonIcon = ({ children, color, title, position = "top", onAction }) => {
     </OverlayTrigger>
   );
 };
+
 const renderTooltip = (props) => {
   return (
     <Tooltip id="button-tooltip" {...props}>
@@ -23,10 +25,11 @@ const renderTooltip = (props) => {
     </Tooltip>
   );
 };
+
 const ButtonPrimary = ({ children, items, actions }) => {
   return (
     <button
-      className={"btn " + items.btn_class}
+      className={"btn" + items.btn_class}
       type={items.type ? items.type : "button"}
       title={items.title}
       onClick={actions}
@@ -35,10 +38,11 @@ const ButtonPrimary = ({ children, items, actions }) => {
     </button>
   );
 };
+
 const ButtonSecondary = ({ children, items, actions }) => {
   return (
     <button
-      className={"btn btn-clear " + items.btn_class}
+      className={"btn btn-clear" + items.btn_class}
       type="button"
       title={items.title}
       onClick={actions}
@@ -47,21 +51,20 @@ const ButtonSecondary = ({ children, items, actions }) => {
     </button>
   );
 };
-const ButtonSearch = ({ children, setSearch }) => {
+
+const ButtonSearch = ({ children, setSearch, search }) => {
   return (
-    <div
-      className="w-100 d-flex align-items-center mb-3 mb-lg-0 bg-white
-border rounded"
-    >
+    <div className="w-100 d-flex align-items-center mb-3 mb-lg-0 bg-white border border-rounded">
       <input
         type="text"
-        className="form-control form-control-sm form-
-control-flush"
+        className="form-control form-control-sm border-0"
         placeholder="Search here"
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
       {children}
     </div>
   );
 };
+
 export { ButtonPrimary, ButtonSecondary, ButtonSearch, ButtonIcon };

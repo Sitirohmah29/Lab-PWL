@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+
 const states = {
   setState: null,
   changeState(data) {
@@ -12,11 +13,11 @@ const states = {
     });
   },
 };
+
 const handleClose = () => {
-  states.changeState({
-    open: false,
-  });
+  states.changeState({ open: false });
 };
+
 const ModalPopUp = () => {
   const [data, setData] = useState({
     open: false,
@@ -26,7 +27,9 @@ const ModalPopUp = () => {
     footer: "",
     onClose: handleClose,
   });
+
   states.setState = setData;
+
   return (
     <Modal show={data.open} onHide={data.onClose} size={data.size}>
       <Modal.Header closeButton>
@@ -35,11 +38,7 @@ const ModalPopUp = () => {
       <Modal.Body>{data.message}</Modal.Body>
       {data.footer ? (
         <Modal.Footer>
-          <button
-            onClick={data.onClose}
-            className="btn btn-secondary px-
-10"
-          >
+          <button onClick={data.onClose} className="btn btn-secondary px-10">
             No
           </button>
           {data.footer}
@@ -50,6 +49,7 @@ const ModalPopUp = () => {
     </Modal>
   );
 };
+
 const openModal = ({
   open = true,
   message,
@@ -70,5 +70,6 @@ const openModal = ({
     },
   });
 };
+
 export default ModalPopUp;
 export { openModal };
