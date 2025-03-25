@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import ChapterOne from "../modules/chapter-1/ChapterOne";
 import { NotFound } from "../errors/404";
+import { ChapterTwo } from "../modules/chapter-2/ChapterTwo";
 
 export default function BaseRoute() {
   return (
@@ -12,6 +13,7 @@ export default function BaseRoute() {
           <Route index element={<Home />} />
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="chapter-two" element={<ChapterTwo />} />
       </Routes>
     </React.Suspense>
   );
